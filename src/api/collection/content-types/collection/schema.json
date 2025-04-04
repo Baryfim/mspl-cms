@@ -1,0 +1,25 @@
+{
+  "kind": "collectionType",
+  "collectionName": "collections",
+  "info": {
+    "singularName": "collection",
+    "pluralName": "collections",
+    "displayName": "Collection",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "papers": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::doc.doc",
+      "mappedBy": "collection"
+    }
+  }
+}
