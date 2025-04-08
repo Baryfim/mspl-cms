@@ -460,6 +460,34 @@ export interface ApiDocDoc extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiPartnerPartner extends Struct.CollectionTypeSchema {
+  collectionName: 'partners';
+  info: {
+    displayName: 'Partner';
+    pluralName: 'partners';
+    singularName: 'partner';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::partner.partner'
+    > &
+      Schema.Attribute.Private;
+    Name: Schema.Attribute.String;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiProjectProject extends Struct.CollectionTypeSchema {
   collectionName: 'projects';
   info: {
@@ -1039,6 +1067,7 @@ declare module '@strapi/strapi' {
       'api::collection.collection': ApiCollectionCollection;
       'api::contact.contact': ApiContactContact;
       'api::doc.doc': ApiDocDoc;
+      'api::partner.partner': ApiPartnerPartner;
       'api::project.project': ApiProjectProject;
       'api::sport.sport': ApiSportSport;
       'plugin::content-releases.release': PluginContentReleasesRelease;
