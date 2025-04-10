@@ -30,6 +30,12 @@
         },
         "url": {
             "type": "string"
+        },
+        "papers": {
+            "type": "relation",
+            "relation": "oneToMany",
+            "target": "api::doc.doc",
+            "mappedBy": "project"
         }
     }
 }

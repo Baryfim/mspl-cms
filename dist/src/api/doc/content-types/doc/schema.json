@@ -32,6 +32,12 @@
             "relation": "manyToOne",
             "target": "api::collection.collection",
             "inversedBy": "papers"
+        },
+        "project": {
+            "type": "relation",
+            "relation": "manyToOne",
+            "target": "api::project.project",
+            "inversedBy": "papers"
         }
     }
 }
